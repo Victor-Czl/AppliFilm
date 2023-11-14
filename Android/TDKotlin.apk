@@ -1,0 +1,1 @@
+class Ville(val nom : String, val rating : Int) {}
