@@ -1,8 +1,10 @@
 package com.cazal.premiereapplication.ui.Films
 
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavHostController
 import com.cazal.premiereapplication.Models.DetailsActeur
 import com.cazal.premiereapplication.Models.DetailsFilm
 import com.cazal.premiereapplication.Models.Film
@@ -144,4 +146,12 @@ class RechercheFilmViewModel(recherche : String): ViewModel() {
     init {
         getResultatsRechercheFilm(recherche)
     }
+}
+
+class RechercheViewModel(navController : NavHostController) : ViewModel() {
+
+    val faitUneRecherche = mutableStateOf(false)
+    val recherche = mutableStateOf("")
+    val pageActive = mutableStateOf(navController.currentBackStackEntry?.destination?.route)
+
 }

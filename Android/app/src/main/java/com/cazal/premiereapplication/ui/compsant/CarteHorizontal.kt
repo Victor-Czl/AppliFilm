@@ -22,7 +22,11 @@ import coil.compose.AsyncImage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun carteHorizontal (navController: NavHostController, id: String, path: String, titre: String) {
+fun carteHorizontal (
+    navController: NavHostController,
+    id: String = "",
+    path: String = "",
+    titre: String = "") {
 
     Surface (
         color = Color.Gray.copy(0.15f),

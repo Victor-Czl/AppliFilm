@@ -35,12 +35,12 @@ import com.cazal.premiereapplication.Models.Genre
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailsFilmOuSerie (
-    titre : String,
-    backdropPath : String,
-    tagline : String,
+    titre : String = "",
+    backdropPath : String = "",
+    tagline : String = "",
     genres : List<Genre>,
-    posterPath : String,
-    overview : String,
+    posterPath : String = "",
+    overview : String = "",
     credits : Credits,
     navController : NavHostController) {
 
@@ -86,7 +86,8 @@ fun DetailsFilmOuSerie (
             Text(
                 text = tagline,
                 color = Color.White,
-                fontSize = 20.sp
+                fontSize = 20.sp,
+                textAlign = TextAlign.Center,
             )
         }
 
@@ -114,9 +115,11 @@ fun DetailsFilmOuSerie (
 
             /*Affiche du filme*/
             Column (verticalArrangement = Arrangement.Center){
-                AsyncImage( model = "https://image.tmdb.org/t/p/w780/" + posterPath,
-                    contentDescription = "Affiche du filme",
-                    modifier = Modifier.size(150.dp))
+                Row (verticalAlignment = Alignment.CenterVertically){
+                    AsyncImage( model = "https://image.tmdb.org/t/p/w780/" + posterPath,
+                        contentDescription = "Affiche du filme",
+                        modifier = Modifier.size(150.dp))
+                }
             }
 
             /*Synopsis*/
